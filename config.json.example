@@ -1,0 +1,11 @@
+{
+    "name": "Search & Scrape",
+    "version": "0.1",
+    "enabled": true,
+    "api_keys_for_searching":
+    {
+        "firecrawl": "Enter api key",
+        "tavily": "Enter api key",
+        "serpapi": "Enter api key",
+    }
+}
