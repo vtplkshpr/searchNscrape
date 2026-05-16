@@ -1,3 +1,11 @@
 /*venv
 config.json
 /logs
+/__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+/storages
