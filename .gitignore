@@ -9,3 +9,5 @@ config.json
 env/
 venv/
 /storages
+/dist/
+/build/
