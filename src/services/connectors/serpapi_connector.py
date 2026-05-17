@@ -2,6 +2,7 @@ import serpapi
 import os
 import json
 
+from src.common.base_search import BaseSearch
 from src.common.config import load_config
 from src.common.logger import logger
 
@@ -9,8 +10,9 @@ config = load_config()
 API_KEY = config.get("api_keys_for_searching.serpapi")
 client = serpapi.Client(api_key=API_KEY)
 
-class SerpApiSearch():
+class SerpApiSearch(BaseSearch):
     def __init__(self):
+        super().__init__()
         self.client = client
 
     def execute(self, engine="google", query=None, location=None, google_domain=None, hl=None, gl=None):

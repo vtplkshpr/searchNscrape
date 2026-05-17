@@ -5,7 +5,7 @@ import pandas as pd
 from datetime import datetime
 
 from src.common.logger import logger
-from src.services.connectors.serpapi import SerpApiSearch
+from src.services.connectors.connectorController import ConnectorsController
 #class SearchNScrape(BaseSkill):
 class SearchNScrape():
     @staticmethod
@@ -47,8 +47,8 @@ class SearchNScrape():
             file_path = os.path.abspath(file_path)
         else:
             file_path = os.path.abspath(os.path.join(base_dir, "storages", file_type, f"search_results_{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.{file_type}"))
-        serpapi_search = SerpApiSearch()
-        results = serpapi_search.execute(query=query)
+        connectors_controller = ConnectorsController()
+        results = connectors_controller.dispatch(query=query)
         web_results = results.get("organic_results", [])
         pagination = results.get("pagination", {}).get("current", 1)
         print(f"Page: {pagination}")
